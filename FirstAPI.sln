@@ -5,6 +5,8 @@ VisualStudioVersion = 17.14.36623.8 d17.14
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FirstAPI", "FirstAPI\FirstAPI.csproj", "{96A4F1A7-D855-4098-9BD8-9E57ACC1B678}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoginLib", "LoginLib\LoginLib.csproj", "{60202605-CB99-4A0E-AA2E-2B31B53197E7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{96A4F1A7-D855-4098-9BD8-9E57ACC1B678}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{96A4F1A7-D855-4098-9BD8-9E57ACC1B678}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{96A4F1A7-D855-4098-9BD8-9E57ACC1B678}.Release|Any CPU.Build.0 = Release|Any CPU
+		{60202605-CB99-4A0E-AA2E-2B31B53197E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60202605-CB99-4A0E-AA2E-2B31B53197E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60202605-CB99-4A0E-AA2E-2B31B53197E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60202605-CB99-4A0E-AA2E-2B31B53197E7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
