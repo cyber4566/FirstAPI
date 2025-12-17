@@ -19,7 +19,7 @@ namespace FirstAPI.Controllers
         }
 
 
-
+        [HttpGet]
         public async Task<ActionResult<bool>> Authenticate(string username, string password) {
 
 
