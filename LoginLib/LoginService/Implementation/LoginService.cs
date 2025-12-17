@@ -29,6 +29,7 @@ namespace LoginLib.Login.Implementation
 
             bool result = false;
 
+
             using (SqlConnection con = new SqlConnection(_config.GetConnectionString("ApplicationDB"))) {
 
                 var parameters = new DynamicParameters();

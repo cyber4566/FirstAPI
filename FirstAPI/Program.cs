@@ -17,13 +17,13 @@ builder.Services.AddScoped<ILoginService,LoginService>();
 
 
 
-var keyVaultUrl = builder.Configuration["KeyVaultUri"];
-if (!string.IsNullOrEmpty(keyVaultUrl))
-{
-    var client = new SecretClient(new Uri(keyVaultUrl), new DefaultAzureCredential());
-    // Load all secrets from Key Vault into the application's configuration
-    builder.Configuration.AddAzureKeyVault(client, new AzureKeyVaultConfigurationOptions());
-}
+//var keyVaultUrl = builder.Configuration["KeyVaultUri"];
+//if (!string.IsNullOrEmpty(keyVaultUrl))
+//{
+//    var client = new SecretClient(new Uri(keyVaultUrl), new DefaultAzureCredential());
+//    // Load all secrets from Key Vault into the application's configuration
+//    builder.Configuration.AddAzureKeyVault(client, new AzureKeyVaultConfigurationOptions());
+//}
 
 var app = builder.Build();
 
