@@ -2,6 +2,7 @@
 using LoginLib.Login.Interface;
 using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Protocols;
 using System;
 using System.Collections.Generic;
@@ -16,10 +17,12 @@ namespace LoginLib.Login.Implementation
     {
 
         private IConfiguration _config;
+        private ILogger<LoginService> _logger;
 
-        public LoginService(IConfiguration configuration) { 
+        public LoginService(IConfiguration configuration,ILogger<LoginService> logger) { 
         
               _config = configuration;
+            _logger = logger;
         
         }
 
@@ -35,7 +38,7 @@ namespace LoginLib.Login.Implementation
 
                 using (SqlConnection con = new SqlConnection(_config.GetConnectionString("ApplicationDB")))
                 {
-
+                    _logger.LogInformation("Info logged");
                     var parameters = new DynamicParameters();
                     parameters.Add("@username", username);
                     parameters.Add("@password", password);
