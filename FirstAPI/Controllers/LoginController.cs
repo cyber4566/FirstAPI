@@ -23,9 +23,20 @@ namespace FirstAPI.Controllers
         public async Task<ActionResult<bool>> Authenticate(string username, string password) {
 
 
-            return await _loginService.Authenticate(username,password);
-        
-        
+            try {
+
+                return await _loginService.Authenticate(username, password);
+
+
+
+
+            }
+            catch (Exception ex) {
+
+
+                throw ex;
+            
+            }
         }
 
 

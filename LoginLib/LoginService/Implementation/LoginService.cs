@@ -26,21 +26,34 @@ namespace LoginLib.Login.Implementation
 
         public async Task<bool> Authenticate(string username, string password)
         {
+            try {
 
-            bool result = false;
 
 
-            using (SqlConnection con = new SqlConnection(_config.GetConnectionString("ApplicationDB"))) {
+                bool result = false;
 
-                var parameters = new DynamicParameters();
-                parameters.Add("@username", username);
-                parameters.Add("@password", password);
 
-                result = (await con.QueryAsync<bool>("CheckUser",parameters,commandType:CommandType.StoredProcedure)).ToList()[0];
+                using (SqlConnection con = new SqlConnection(_config.GetConnectionString("ApplicationDB")))
+                {
+
+                    var parameters = new DynamicParameters();
+                    parameters.Add("@username", username);
+                    parameters.Add("@password", password);
+
+                    result = (await con.QueryAsync<bool>("CheckUser", parameters, commandType: CommandType.StoredProcedure)).ToList()[0];
+
+                }
+
+                return result;
+
+
+
+            }
+            catch (Exception ex) {
+
+                throw ex;
             
             }
-
-            return result;
             
         }
 
