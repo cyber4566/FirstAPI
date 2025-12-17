@@ -42,6 +42,9 @@ namespace LoginLib.Login.Implementation
                     var parameters = new DynamicParameters();
                     parameters.Add("@username", username);
                     parameters.Add("@password", password);
+
+                    _logger.LogInformation($"Passing Parameters to CheckUser SP: @username = {username} and @password = {password}");
+
                     _logger.LogInformation("Executing Stored procedure CheckUser");
                     result = (await con.QueryAsync<bool>("CheckUser", parameters, commandType: CommandType.StoredProcedure)).ToList()[0];
                     _logger.LogInformation("Successfully Executed Stored procedure CheckUser");
@@ -53,7 +56,7 @@ namespace LoginLib.Login.Implementation
 
             }
             catch (Exception ex) {
-                _logger.LogError($"Error in Authenticate fucntion in LoginService class:{ex.Message} {ex.InnerException}");
+                _logger.LogError($"Error in Authenticate function in LoginService class:{ex.Message} {ex.InnerException}");
                 throw ex;
             
             }
