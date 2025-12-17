@@ -35,16 +35,16 @@ namespace LoginLib.Login.Implementation
 
                 bool result = false;
 
-
+                _logger.LogInformation($"Connecting to database using connection string:{_config.GetConnectionString("ApplicationDB")}");
                 using (SqlConnection con = new SqlConnection(_config.GetConnectionString("ApplicationDB")))
                 {
-                    _logger.LogInformation("Info logged");
+                    
                     var parameters = new DynamicParameters();
                     parameters.Add("@username", username);
                     parameters.Add("@password", password);
-
+                    _logger.LogInformation("Executing Stored procedure CheckUser");
                     result = (await con.QueryAsync<bool>("CheckUser", parameters, commandType: CommandType.StoredProcedure)).ToList()[0];
-
+                    _logger.LogInformation("Successfully Executed Stored procedure CheckUser");
                 }
 
                 return result;
@@ -53,7 +53,7 @@ namespace LoginLib.Login.Implementation
 
             }
             catch (Exception ex) {
-
+                _logger.LogError($"Error in Authenticate fucntion in LoginService class:{ex.Message} {ex.InnerException}");
                 throw ex;
             
             }
